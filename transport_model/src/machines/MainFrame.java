@@ -8,7 +8,7 @@ import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
-//import javax.swing.SwingUtilities;
+import javax.swing.SwingUtilities;
  
 
 public class MainFrame extends JFrame{
