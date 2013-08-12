@@ -3,22 +3,13 @@ package machines;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-/*import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-
-import javax.swing.JFrame;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
-import javax.swing.SwingUtilities;
-*/
 
 public class MainFrame extends JFrame{
     
 	public MainFrame() {
 			initUI();	   
-	    }
-	// метод, реализующий само окно, меню, кнопки и т.д.    
+		}
+	// метод, реализующий само окно, меню, кнопки
 	private void initUI(){	
 	    	// создаем объекты меню
 			JMenuBar menu=new JMenuBar();
@@ -68,17 +59,45 @@ public class MainFrame extends JFrame{
             stop.addActionListener(printListener);
             settings.addActionListener(printListener);
             loadMap.addActionListener(printListener);
-         
-	    }
-	
-	    public static void main(String[] args) {
+        
+            //кнопки, создаем панель, добавляем в jframe
+            JPanel panel=new JPanel();
+      		add(panel);
+
+      		// устанавливаем свободное размещение кнопок
+      	    panel.setLayout(null);
+
+      	    // грузим картинки
+      	    ImageIcon startIcon= new ImageIcon("img/start.jpg");
+      	    ImageIcon stopIcon= new ImageIcon("img/stop.jpg");
+      	    
+      	    //кнопки
+      	    JButton start=new JButton("start",startIcon);
+      	    JButton pause=new JButton("stop",stopIcon);
+      	    
+      	    panel.add(start);
+      	    panel.add(pause);
+      	    
+      	    // удаляем границу, устанавливаем положение на экране
+      	    //start.setBorder(BorderFactory.createEmptyBorder());
+      	    //start.setContentAreaFilled(false);
+      	    start.setBounds(700,550,80,80);
+      	    
+      	    //pause.setBorder(BorderFactory.createEmptyBorder());
+      	    //pause.setContentAreaFilled(false);
+      	    pause.setBounds(800,550,80,80);
+        
+		}
+
+		public static void main(String[] args) {
 	    	
 	    	MainFrame frame=new MainFrame();
+	    	
 	    	//параметры окна
 	    	frame.setTitle("Transport model");
 			frame.setSize(900,700);
 	    	frame.setLocationRelativeTo(null);
 	    	frame.setDefaultCloseOperation(EXIT_ON_CLOSE); 
 	    	frame.setVisible(true);
-	    }
+		}
 }
