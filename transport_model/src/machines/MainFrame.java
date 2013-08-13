@@ -1,8 +1,10 @@
 package machines;
 
+import java.io.*;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import javax.swing.filechooser.*;
 
 public class MainFrame extends JFrame{
     
@@ -24,9 +26,27 @@ public class MainFrame extends JFrame{
 			menu.add(run);
 			
 			JMenuItem open=new JMenuItem("Open");
+			// при нажатии на open создается file chooser
+			open.addActionListener(new ActionListener(){
+				public void actionPerformed(ActionEvent event){
+					JFrame frame=new JFrame();
+					JFileChooser fc=new JFileChooser();
+					fc.setMultiSelectionEnabled(true);
+			        fc.setCurrentDirectory(new File("C:\\tmp"));
+			        fc.showDialog(frame,"Choose");
+				}
+			});
+			
 			JMenuItem fresh=new JMenuItem("New");
 			JMenuItem save=new JMenuItem("Save");
+			
 			JMenuItem exit=new JMenuItem("Exit");
+			exit.addActionListener(new ActionListener() {
+	            public void actionPerformed(ActionEvent event) {
+	                System.exit(0);
+	            }
+	        });
+			
 			JMenuItem execute=new JMenuItem("Run");
 			JMenuItem stop=new JMenuItem("Stop");
 			JMenuItem settings=new JMenuItem("Preferences");
@@ -52,6 +72,7 @@ public class MainFrame extends JFrame{
             };
             
             open.addActionListener(printListener);
+            
             fresh.addActionListener(printListener);
             save.addActionListener(printListener);
             exit.addActionListener(printListener);
@@ -81,23 +102,25 @@ public class MainFrame extends JFrame{
       	    // удаляем границу, устанавливаем положение на экране
       	    start.setBorder(BorderFactory.createEmptyBorder());
       	    start.setContentAreaFilled(false);
-      	    start.setBounds(600,525,120,120);
+      	    start.setBounds(1000,550,120,120);
       	    
       	    pause.setBorder(BorderFactory.createEmptyBorder());
       	    pause.setContentAreaFilled(false);
-      	    pause.setBounds(750,525,120,120);
+      	    pause.setBounds(1150,550,120,120);
         
+      	    // подгоняю размер окна под размер экрана.
+      	    Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+	         setBounds(0,0,screenSize.width, screenSize.height);
+		
+	       //параметры окна
+		    	setTitle("Transport model");
+				setLocationRelativeTo(null);
+		    	setDefaultCloseOperation(EXIT_ON_CLOSE); 
+		    	setVisible(true);
 		}
 
 		public static void main(String[] args) {
 	    	
 	    	MainFrame frame=new MainFrame();
-	    	
-	    	//параметры окна
-	    	frame.setTitle("Transport model");
-			frame.setSize(900,700);
-	    	frame.setLocationRelativeTo(null);
-	    	frame.setDefaultCloseOperation(EXIT_ON_CLOSE); 
-	    	frame.setVisible(true);
-		}
+	    	}
 }
