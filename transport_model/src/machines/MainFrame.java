@@ -5,6 +5,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.filechooser.*;
+import java.net.*;
 
 public class MainFrame extends JFrame{
     
@@ -89,16 +90,29 @@ public class MainFrame extends JFrame{
       	    panel.setLayout(null);
 
       	    // грузим картинки
-      	    ImageIcon startIcon= new ImageIcon(getClass().getResource("img/start.jpg"));
-      	    ImageIcon stopIcon= new ImageIcon(getClass().getResource("img/stop.jpeg"));
+      	    final ImageIcon startIcon= new ImageIcon(getClass().getResource("img/start.jpg"));
+      	    final ImageIcon stopIcon= new ImageIcon(getClass().getResource("img/stop.jpeg"));
+      	    final ImageIcon pushStopIcon= new ImageIcon(getClass().getResource("img/stoppush.jpg"));
+      	    final ImageIcon pushStartIcon= new ImageIcon(getClass().getResource("img/startpush.jpg"));
       	    
       	    //кнопки
-      	    JButton start=new JButton(startIcon);
-      	    JButton pause=new JButton(stopIcon);
+      	    final JButton start=new JButton(startIcon);
+      	    final JButton pause=new JButton(stopIcon);
       	    
       	    panel.add(start);
       	    panel.add(pause);
       	    
+      	  start.addActionListener(new ActionListener() {
+              public void actionPerformed(ActionEvent e) {
+                  start.setIcon(start.getIcon()==startIcon? pushStartIcon:startIcon);
+             }
+          });
+      	  
+      	  pause.addActionListener(new ActionListener() {
+              public void actionPerformed(ActionEvent e) {
+                  pause.setIcon(pause.getIcon()==stopIcon? pushStopIcon:stopIcon);
+             }
+          });
       	    // удаляем границу, устанавливаем положение на экране
       	    start.setBorder(BorderFactory.createEmptyBorder());
       	    start.setContentAreaFilled(false);
@@ -122,5 +136,6 @@ public class MainFrame extends JFrame{
 		public static void main(String[] args) {
 	    	
 	    	MainFrame frame=new MainFrame();
-	    	}
+	    	
+			}
 }
