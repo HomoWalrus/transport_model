@@ -68,24 +68,24 @@ public class MainFrame extends JFrame{
       	    panel.setLayout(null);
 
       	    // грузим картинки
-      	    ImageIcon startIcon= new ImageIcon("img/start.jpg");
-      	    ImageIcon stopIcon= new ImageIcon("img/stop.jpg");
+      	    ImageIcon startIcon= new ImageIcon(getClass().getResource("img/start.jpg"));
+      	    ImageIcon stopIcon= new ImageIcon(getClass().getResource("img/stop.jpeg"));
       	    
       	    //кнопки
-      	    JButton start=new JButton("start",startIcon);
-      	    JButton pause=new JButton("stop",stopIcon);
+      	    JButton start=new JButton(startIcon);
+      	    JButton pause=new JButton(stopIcon);
       	    
       	    panel.add(start);
       	    panel.add(pause);
       	    
       	    // удаляем границу, устанавливаем положение на экране
-      	    //start.setBorder(BorderFactory.createEmptyBorder());
-      	    //start.setContentAreaFilled(false);
-      	    start.setBounds(700,550,80,80);
+      	    start.setBorder(BorderFactory.createEmptyBorder());
+      	    start.setContentAreaFilled(false);
+      	    start.setBounds(600,525,120,120);
       	    
-      	    //pause.setBorder(BorderFactory.createEmptyBorder());
-      	    //pause.setContentAreaFilled(false);
-      	    pause.setBounds(800,550,80,80);
+      	    pause.setBorder(BorderFactory.createEmptyBorder());
+      	    pause.setContentAreaFilled(false);
+      	    pause.setBounds(750,525,120,120);
         
 		}
 
