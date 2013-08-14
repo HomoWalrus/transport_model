@@ -105,13 +105,21 @@ public class MainFrame extends JFrame{
       	  start.addActionListener(new ActionListener() {
               public void actionPerformed(ActionEvent e) {
                   start.setIcon(start.getIcon()==startIcon? pushStartIcon:startIcon);
-             }
+                  if(pause.getIcon()==pushStopIcon)
+                  {
+                	  pause.setIcon(stopIcon);
+                  }
+              }
           });
       	  
       	  pause.addActionListener(new ActionListener() {
               public void actionPerformed(ActionEvent e) {
                   pause.setIcon(pause.getIcon()==stopIcon? pushStopIcon:stopIcon);
-             }
+                  if(start.getIcon()==pushStartIcon)
+                  {
+                	  start.setIcon(startIcon);
+                  }
+              }
           });
       	    // удаляем границу, устанавливаем положение на экране
       	    start.setBorder(BorderFactory.createEmptyBorder());
