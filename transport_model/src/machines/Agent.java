@@ -1,0 +1,13 @@
+package machines;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class Agent {
+
+	public void Agent() {
+		int speed;
+		}
+	
+}

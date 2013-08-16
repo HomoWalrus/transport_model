@@ -5,11 +5,11 @@ import java.util.*;
 public class Dijkstra {
 
   public static void shortestPaths(List<Edge>[] edges, int s, double[] prio, int[] pred) {
-    Arrays.fill(pred, -1);  				  //заполняем массив pred -1; это массив показывающий предыдущию вершину в пути
-    Arrays.fill(prio, 2147483647.0);	  //заполняем массив макс интами(просто большими числами)
-    prio[s] = 0.0;							  //ставим путь до нашей вершины 0
-    PriorityQueue<Long> q = new PriorityQueue<Long>(); // сделаем приоритетную очередь из double's
-    q.add((long) s);		//добавляем в нее s
+    Arrays.fill(pred, -1);  				  //Р·Р°РїРѕР»РЅСЏРµРј РјР°СЃСЃРёРІ pred -1; СЌС‚Рѕ РјР°СЃСЃРёРІ РїРѕРєР°Р·С‹РІР°СЋС‰РёР№ РїСЂРµРґС‹РґСѓС‰РёСЋ РІРµСЂС€РёРЅСѓ РІ РїСѓС‚Рё
+    Arrays.fill(prio, 2147483647.0);	  //Р·Р°РїРѕР»РЅСЏРµРј РјР°СЃСЃРёРІ РјР°РєСЃ РёРЅС‚Р°РјРё(РїСЂРѕСЃС‚Рѕ Р±РѕР»СЊС€РёРјРё С‡РёСЃР»Р°РјРё)
+    prio[s] = 0.0;							  //СЃС‚Р°РІРёРј РїСѓС‚СЊ РґРѕ РЅР°С€РµР№ РІРµСЂС€РёРЅС‹ 0
+    PriorityQueue<Long> q = new PriorityQueue<Long>(); // СЃРґРµР»Р°РµРј РїСЂРёРѕСЂРёС‚РµС‚РЅСѓСЋ РѕС‡РµСЂРµРґСЊ РёР· double's
+    q.add((long) s);		//РґРѕР±Р°РІР»СЏРµРј РІ РЅРµРµ s
     while (!q.isEmpty()) {
       double cur = q.remove();
       int curu = (int) cur;
@@ -27,7 +27,7 @@ public class Dijkstra {
     }
   }
 
-  static class Edge { //класс "ребро"
+  static class Edge { //РєР»Р°СЃСЃ "СЂРµР±СЂРѕ"
     int t, cost;
 
     public Edge(int t, int cost) {
@@ -36,7 +36,7 @@ public class Dijkstra {
     }
   }
   
-  static class koord {  //простенький класс с двумя координатами
+  static class koord {  //РїСЂРѕСЃС‚РµРЅСЊРєРёР№ РєР»Р°СЃСЃ СЃ РґРІСѓРјСЏ РєРѕРѕСЂРґРёРЅР°С‚Р°РјРё
 	    int x , y ;
 
 	    public koord(int x , int y) {
@@ -45,25 +45,25 @@ public class Dijkstra {
 	    }
 	  }
 
-  // ы
+  // С‹
   
     public static void main(String[] args) {
     	
   
     int[][] /*roads*/cost = {   { 0, 1, 0 }, 
     					{ 0, 0, 1 }, 
-    					{ 1, 1, 0 } };//массив дорог цифра длина ребра
-  //   kolper = cost.length;	//колличество перекрестков
+    					{ 1, 1, 0 } };//РјР°СЃСЃРёРІ РґРѕСЂРѕРі С†РёС„СЂР° РґР»РёРЅР° СЂРµР±СЂР°
+  //   kolper = cost.length;	//РєРѕР»Р»РёС‡РµСЃС‚РІРѕ РїРµСЂРµРєСЂРµСЃС‚РєРѕРІ
 //koord [] koordPer ;
     //koordPer = new koord [kolper] ;
     //koordPer[ 0 ] = koord( 100 , 100 ) ;
     //koordPer[ 1 ] = koord( 200 , 100 ) ;
     //koordPer[ 2 ] = koord( 150 , 200 ) ;
    
-    //решил делать без этого
+    //СЂРµС€РёР» РґРµР»Р°С‚СЊ Р±РµР· СЌС‚РѕРіРѕ
     // int kolperekr = roads.length ;
     //int kolversh = 0 ;
-    //for ( int i = 0 ; i < kolperekr ; i++  ) {	//считаем количество вершин в рабочем графе
+    //for ( int i = 0 ; i < kolperekr ; i++  ) {	//СЃС‡РёС‚Р°РµРј РєРѕР»РёС‡РµСЃС‚РІРѕ РІРµСЂС€РёРЅ РІ СЂР°Р±РѕС‡РµРј РіСЂР°С„Рµ
     	//for ( int j = 0 ; j < kolperekr ; j++  ) {
     		//kolversh += roads[i][j] * 2 ;
     		//}
@@ -71,18 +71,18 @@ public class Dijkstra {
     
     //System.out.println( kolversh );
     	
-   // int [][] cost ;/* = { { 0, 3, 2 }, { 0, 0, -2 }, { 0, 0, 0 } } ; */  //массив 12*12 //делаем прям по массиву роадс
+   // int [][] cost ;/* = { { 0, 3, 2 }, { 0, 0, -2 }, { 0, 0, 0 } } ; */  //РјР°СЃСЃРёРІ 12*12 //РґРµР»Р°РµРј РїСЂСЏРј РїРѕ РјР°СЃСЃРёРІСѓ СЂРѕР°РґСЃ
     //cost = new int [ kolversh ][ kolversh ] ;
     //for ( int i = 0 ; i < kolversh ; i++ ){}
     
     
     int n = cost.length ; //n = 3
-    List<Edge>[] edges = new List[n]; //массив листов-ребер
+    List<Edge>[] edges = new List[n]; //РјР°СЃСЃРёРІ Р»РёСЃС‚РѕРІ-СЂРµР±РµСЂ
     for (int i = 0; i < n; i++) {
-      edges[i] = new ArrayList<Edge>();  //создали ребро i
+      edges[i] = new ArrayList<Edge>();  //СЃРѕР·РґР°Р»Рё СЂРµР±СЂРѕ i
       for (int j = 0; j < n; j++) {
         if (cost[i][j] != 0) {
-          edges[i].add(new Edge(j, cost[i][j]));// Если есть путь, создаем ребро в лист
+          edges[i].add(new Edge(j, cost[i][j]));// Р•СЃР»Рё РµСЃС‚СЊ РїСѓС‚СЊ, СЃРѕР·РґР°РµРј СЂРµР±СЂРѕ РІ Р»РёСЃС‚
         }
       }
     }
