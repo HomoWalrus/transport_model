@@ -6,6 +6,8 @@ import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.filechooser.*;
 import java.net.*;
+import java.awt.image.BufferedImage;
+import javax.imageio.ImageIO;
 
 public class MainFrame extends JFrame{
     
@@ -94,15 +96,15 @@ public class MainFrame extends JFrame{
       	    final ImageIcon stopIcon= new ImageIcon(getClass().getResource("img/stop.jpeg"));
       	    final ImageIcon pushStopIcon= new ImageIcon(getClass().getResource("img/stoppush.jpg"));
       	    final ImageIcon pushStartIcon= new ImageIcon(getClass().getResource("img/startpush.jpg"));
-      	    
+      	    	
       	    //кнопки
       	    final JButton start=new JButton(startIcon);
       	    final JButton pause=new JButton(stopIcon);
-      	    
+      	   
       	    panel.add(start);
       	    panel.add(pause);
-      	    
-      	  start.addActionListener(new ActionListener() {
+      	         	  
+      	    start.addActionListener(new ActionListener() {
               public void actionPerformed(ActionEvent e) {
                   start.setIcon(start.getIcon()==startIcon? pushStartIcon:startIcon);
                   if(pause.getIcon()==pushStopIcon)
@@ -139,11 +141,12 @@ public class MainFrame extends JFrame{
 				setLocationRelativeTo(null);
 		    	setDefaultCloseOperation(EXIT_ON_CLOSE); 
 		    	setVisible(true);
+		  
+		    
 		}
-
-		public static void main(String[] args) {
+      
+		public static void main(String[] args) throws IOException{
 	    	
 	    	MainFrame frame=new MainFrame();
-	    	
-			}
+		}
 }
