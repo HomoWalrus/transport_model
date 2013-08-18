@@ -85,12 +85,9 @@ public class MainFrame extends JFrame{
             loadMap.addActionListener(printListener);
         
             //кнопки, создаем панель, добавляем в jframe
-            JPanel panel=new JPanel();
+            MapPanel panel=new MapPanel();
       		add(panel);
-
-      		// устанавливаем свободное размещение кнопок
-      	    panel.setLayout(null);
-
+      		
       	    // грузим картинки
       	    final ImageIcon startIcon= new ImageIcon(getClass().getResource("img/start.jpg"));
       	    final ImageIcon stopIcon= new ImageIcon(getClass().getResource("img/stop.jpeg"));
@@ -146,7 +143,8 @@ public class MainFrame extends JFrame{
 		}
       
 		public static void main(String[] args) throws IOException{
-	    	
-	    	MainFrame frame=new MainFrame();
-		}
+				
+			MainFrame frame=new MainFrame();
+		
+			}
 }
