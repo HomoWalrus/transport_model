@@ -3,20 +3,26 @@ package machines;
 import java.io.*;
 import java.awt.*;
 import java.awt.event.*;
+
 import javax.swing.*;
 import javax.swing.filechooser.*;
 import java.net.*;
-import java.awt.image.BufferedImage;
-import javax.imageio.ImageIO;
+import java.awt.Dialog;
 
 public class MainFrame extends JFrame{
     
+	
 	public MainFrame() {
 			initUI();	   
 		}
 	// метод, реализующий само окно, меню, кнопки
 	private void initUI(){	
-	    	// создаем объекты меню
+		final ImageIcon map1l= new ImageIcon(getClass().getResource("img/map1label.png"));
+		final ImageIcon map2l= new ImageIcon(getClass().getResource("img/map2label.png"));
+		final ImageIcon map3l= new ImageIcon(getClass().getResource("img/map3label.png"));
+		
+		
+		// создаем объекты меню
 			JMenuBar menu=new JMenuBar();
 			setJMenuBar(menu);
 			
@@ -53,7 +59,52 @@ public class MainFrame extends JFrame{
 			JMenuItem execute=new JMenuItem("Run");
 			JMenuItem stop=new JMenuItem("Stop");
 			JMenuItem settings=new JMenuItem("Preferences");
+			
 			JMenuItem loadMap=new JMenuItem("Load map");
+			loadMap.addActionListener(new ActionListener() {
+	            public void actionPerformed(ActionEvent e){
+				
+	            	JDialog choiceMap=new JDialog();
+	            	//choiceMap.setBounds(100, 100, 450, 300);
+	            	choiceMap.setVisible(true);
+	            	choiceMap.setSize(500,200);
+	            	choiceMap.setTitle("Choose map");
+	            	choiceMap.setLocationRelativeTo(null);
+	            	choiceMap.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+	            		            	
+	            	final JPanel maps=new JPanel();
+			    	choiceMap.add(maps);
+			    	maps.setLayout(null);
+			    	
+			    	final JButton map1=new JButton(map1l);
+			    	final JButton map2=new JButton(map2l);
+			    	final JButton map3=new JButton(map3l);
+			    	
+			    	map1.setBorder(BorderFactory.createEmptyBorder());
+		      	    map1.setContentAreaFilled(false);
+		      	    map1.setBounds(25,50,100,100);
+		      	    
+		      	    map2.setBorder(BorderFactory.createEmptyBorder());
+		      	    map2.setContentAreaFilled(false);
+		      	    map2.setBounds(200,50,100,100);
+			    	
+		      	    map3.setBorder(BorderFactory.createEmptyBorder());
+		      	    map3.setContentAreaFilled(false);
+		      	    map3.setBounds(375,50,100,100);
+			    	
+		      	    maps.add(map1);
+			    	maps.add(map2);
+			    	maps.add(map3);
+			    	
+			    	map1.addActionListener(new ActionListener(){
+			    		@Override
+			    		public void actionPerformed(ActionEvent ev){
+			    			MapPanel.ImageFile="img/map1.jpg";
+			    		}
+
+			    	});
+	            }
+	        });
 			
 			file.add(open);
 			file.add(fresh);
@@ -87,7 +138,12 @@ public class MainFrame extends JFrame{
             //кнопки, создаем панель, добавляем в jframe
             MapPanel panel=new MapPanel();
       		add(panel);
+      		panel.setLayout(null);
       		
+      	    /*panel.setLayout(new BoxLayout(panel, BoxLayout.X_AXIS));
+      	    panel.add(Box.createRigidArea(new Dimension(1000, 0)));
+      	    panel.add(Box.createRigidArea(new Dimension(5, 0)));*/
+      	    
       	    // грузим картинки
       	    final ImageIcon startIcon= new ImageIcon(getClass().getResource("img/start.jpg"));
       	    final ImageIcon stopIcon= new ImageIcon(getClass().getResource("img/stop.jpeg"));

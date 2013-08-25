@@ -8,25 +8,9 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 
 	public class MapPanel extends JPanel{
-		
-		String ImageFile="img/map1.jpg";
 	
-				
-		public MapPanel()
-		{
-		super();
-		}
-
-		public MapPanel(String image)
-		{
-		super();
-		this.ImageFile = image;
-		}
-
-		public MapPanel(LayoutManager layout)
-		{
-		super(layout);
-		}
+		public static String ImageFile="";
+		
 		//переписывается стандартный метод добавления картинки
 			@Override
 				protected void paintComponent(Graphics g) {
