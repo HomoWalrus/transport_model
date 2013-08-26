@@ -64,7 +64,7 @@ public class MainFrame extends JFrame{
 			loadMap.addActionListener(new ActionListener() {
 	            public void actionPerformed(ActionEvent e){
 				
-	            	JDialog choiceMap=new JDialog();
+	            	final JDialog choiceMap=new JDialog();
 	            	//choiceMap.setBounds(100, 100, 450, 300);
 	            	choiceMap.setVisible(true);
 	            	choiceMap.setSize(500,200);
@@ -100,6 +100,25 @@ public class MainFrame extends JFrame{
 			    		@Override
 			    		public void actionPerformed(ActionEvent ev){
 			    			MapPanel.ImageFile="img/map1.jpg";
+			    			choiceMap.setVisible(false);
+			    		}
+
+			    	});
+			    	
+			    	map2.addActionListener(new ActionListener(){
+			    		@Override
+			    		public void actionPerformed(ActionEvent ev){
+			    			MapPanel.ImageFile="img/map2.jpg";
+			    			choiceMap.setVisible(false);
+			    		}
+
+			    	});
+			    	
+			    	map3.addActionListener(new ActionListener(){
+			    		@Override
+			    		public void actionPerformed(ActionEvent ev){
+			    			MapPanel.ImageFile="img/map3.jpg";
+			    			choiceMap.setVisible(false);
 			    		}
 
 			    	});
