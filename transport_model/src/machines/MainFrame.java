@@ -60,11 +60,12 @@ public class MainFrame extends JFrame{
 			JMenuItem stop=new JMenuItem("Stop");
 			JMenuItem settings=new JMenuItem("Preferences");
 			
+			//загрузка карт
 			JMenuItem loadMap=new JMenuItem("Load map");
 			loadMap.addActionListener(new ActionListener() {
 	            public void actionPerformed(ActionEvent e){
 				
-	            	final JDialog choiceMap=new JDialog();
+	            	final JDialog choiceMap=new JDialog(); //создается диалог, задаются параметры окна
 	            	//choiceMap.setBounds(100, 100, 450, 300);
 	            	choiceMap.setVisible(true);
 	            	choiceMap.setSize(500,200);
@@ -72,11 +73,11 @@ public class MainFrame extends JFrame{
 	            	choiceMap.setLocationRelativeTo(null);
 	            	choiceMap.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 	            		            	
-	            	final JPanel maps=new JPanel();
+	            	final JPanel maps=new JPanel();//создаем панель под кнопки
 			    	choiceMap.add(maps);
-			    	maps.setLayout(null);
+			    	maps.setLayout(null);// размещаем, задавая координаты
 			    	
-			    	final JButton map1=new JButton(map1l);
+			    	final JButton map1=new JButton(map1l);//кнопки с картинками
 			    	final JButton map2=new JButton(map2l);
 			    	final JButton map3=new JButton(map3l);
 			    	
@@ -96,11 +97,16 @@ public class MainFrame extends JFrame{
 			    	maps.add(map2);
 			    	maps.add(map3);
 			    	
-			    	map1.addActionListener(new ActionListener(){
+			    	map1.addActionListener(new ActionListener(){ // здесь и для других кнопок, при нажатии задается значение переменной в классе mappnel, окно диалога скрывается
 			    		@Override
 			    		public void actionPerformed(ActionEvent ev){
+			    		
 			    			MapPanel.ImageFile="img/map1.jpg";
 			    			choiceMap.setVisible(false);
+			    			setExtendedState(MAXIMIZED_BOTH);
+			    			setExtendedState(NORMAL);
+			    			maps used = new maps() ;
+			    			used.mapinfo(1);
 			    		}
 
 			    	});
@@ -110,6 +116,10 @@ public class MainFrame extends JFrame{
 			    		public void actionPerformed(ActionEvent ev){
 			    			MapPanel.ImageFile="img/map2.jpg";
 			    			choiceMap.setVisible(false);
+			    			setExtendedState(MAXIMIZED_BOTH);
+			    			setExtendedState(NORMAL);
+			    			maps used = new maps() ;
+			    			used.mapinfo(2);
 			    		}
 
 			    	});
@@ -119,6 +129,10 @@ public class MainFrame extends JFrame{
 			    		public void actionPerformed(ActionEvent ev){
 			    			MapPanel.ImageFile="img/map3.jpg";
 			    			choiceMap.setVisible(false);
+			    			setExtendedState(MAXIMIZED_BOTH);
+			    			setExtendedState(NORMAL);
+			    			maps used = new maps() ;
+			    			used.mapinfo(3);
 			    		}
 
 			    	});
@@ -155,9 +169,10 @@ public class MainFrame extends JFrame{
             loadMap.addActionListener(printListener);
         
             //кнопки, создаем панель, добавляем в jframe
-            MapPanel panel=new MapPanel();
+            final MapPanel panel=new MapPanel();
       		add(panel);
       		panel.setLayout(null);
+      		
       		
       	    /*panel.setLayout(new BoxLayout(panel, BoxLayout.X_AXIS));
       	    panel.add(Box.createRigidArea(new Dimension(1000, 0)));
@@ -178,13 +193,19 @@ public class MainFrame extends JFrame{
       	         	  
       	    start.addActionListener(new ActionListener() {
               public void actionPerformed(ActionEvent e) {
-                  start.setIcon(start.getIcon()==startIcon? pushStartIcon:startIcon);
+                  
+            	  MachinePanel machines=new MachinePanel();
+                  panel.add(machines);
+                  machines.setLayout(null);
+                  
+            	  start.setIcon(start.getIcon()==startIcon? pushStartIcon:startIcon);
                   if(pause.getIcon()==pushStopIcon)
                   {
                 	  pause.setIcon(stopIcon);
                   }
               }
           });
+      	    
       	  
       	  pause.addActionListener(new ActionListener() {
               public void actionPerformed(ActionEvent e) {
@@ -206,7 +227,7 @@ public class MainFrame extends JFrame{
         
       	    // подгоняю размер окна под размер экрана.
       	    Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-	         setBounds(0,0,screenSize.width, screenSize.height);
+	        setBounds(0,0,screenSize.width, screenSize.height);
 		
 	       //параметры окна
 		    	setTitle("Transport model");
@@ -219,7 +240,15 @@ public class MainFrame extends JFrame{
       
 		public static void main(String[] args) throws IOException{
 				
-			MainFrame frame=new MainFrame();
+			SwingUtilities.invokeLater(new Runnable(){
+				@Override
+				public void run(){
+					
+					MainFrame frame=new MainFrame();
+					frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
+				}
+			});
+			
 		
 			}
 }

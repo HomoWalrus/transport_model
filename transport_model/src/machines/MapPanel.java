@@ -10,16 +10,18 @@ import javax.swing.*;
 	public class MapPanel extends JPanel{
 	
 		public static String ImageFile="";
+		Image image;
+		ImageIcon mapIcon;
 		
 		//переписывается стандартный метод добавления картинки
-			@Override
-				protected void paintComponent(Graphics g) {
-			    
-				ImageIcon imageicon = new ImageIcon(getClass().getResource(ImageFile));
-				Image image = imageicon.getImage();
-				
+		@Override
+		protected void paintComponent(Graphics g) {
+
+					mapIcon= new ImageIcon(getClass().getResource(ImageFile));
+					image = mapIcon.getImage();
+			
 					super.paintComponent(g);
-			        g.drawImage(image, 50, 50, this);
+			        g.drawImage(image, 50,0, this);
 			    
 				}
 	}	    
