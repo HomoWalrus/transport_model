@@ -11,7 +11,6 @@ public class road {
 		  this.endpoint =  endpoint ;
 		  this.roadsto = roadsto ;
 		  this.roadsback = roadsback ;
-		  this.length =  (long)sqrt( pow((double)( global.koordPer[startpoint].x - global.koordPer[endpoint].x)  , 2.0 ) + 
-				  			   pow((double)(global.koordPer[startpoint].y - global.koordPer[endpoint].y)  , 2.0 ) );
+		  this.length =  global.koordPer[ startpoint ].rast( global.koordPer[ endpoint ] ) ;
 	  }
   }
