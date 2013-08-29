@@ -5,9 +5,9 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.*;
 
-public class MachinePanel extends JComponent{
+public class MachinePanel extends JPanel{
 
-	ImageIcon auto=new ImageIcon(getClass().getResource("img/start.png"));
+	ImageIcon auto=new ImageIcon(getClass().getResource("img/start.jpg"));
 	Image machine=auto.getImage();
 	
 	

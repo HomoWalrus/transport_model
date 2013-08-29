@@ -37,7 +37,7 @@ public class Agent {
 		int length=global.kolPer;
 		int[] startarray=new int[length];
 		int[] endarray=new int[length];
-		int[] speedarray=new int[20];
+		int[] speedarray=new int[8];
 		
 		for(i=0;i<=length;i++)
 		{
@@ -49,7 +49,7 @@ public class Agent {
 			endarray[i]=i;
 		}
 		
-		for(i=20;i<=40;i++)
+		for(i=2;i<=10;i++)
 		{
 			speedarray[i]=i;
 		}

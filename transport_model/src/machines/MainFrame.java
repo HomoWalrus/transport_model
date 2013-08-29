@@ -101,7 +101,7 @@ public class MainFrame extends JFrame{
 			    		@Override
 			    		public void actionPerformed(ActionEvent ev){
 			    		
-			    			MapPanel.ImageFile="img/map1.jpg";
+			    			MapPanel.ImageMap="img/map1.jpg";
 			    			choiceMap.setVisible(false);
 			    			setExtendedState(MAXIMIZED_BOTH);
 			    			setExtendedState(NORMAL);
@@ -114,7 +114,7 @@ public class MainFrame extends JFrame{
 			    	map2.addActionListener(new ActionListener(){
 			    		@Override
 			    		public void actionPerformed(ActionEvent ev){
-			    			MapPanel.ImageFile="img/map2.jpg";
+			    			MapPanel.ImageMap="img/map2.jpg";
 			    			choiceMap.setVisible(false);
 			    			setExtendedState(MAXIMIZED_BOTH);
 			    			setExtendedState(NORMAL);
@@ -127,7 +127,7 @@ public class MainFrame extends JFrame{
 			    	map3.addActionListener(new ActionListener(){
 			    		@Override
 			    		public void actionPerformed(ActionEvent ev){
-			    			MapPanel.ImageFile="img/map3.jpg";
+			    			MapPanel.ImageMap="img/map3.jpg";
 			    			choiceMap.setVisible(false);
 			    			setExtendedState(MAXIMIZED_BOTH);
 			    			setExtendedState(NORMAL);
@@ -194,10 +194,7 @@ public class MainFrame extends JFrame{
       	    start.addActionListener(new ActionListener() {
               public void actionPerformed(ActionEvent e) {
                   
-            	  MachinePanel machines=new MachinePanel();
-                  panel.add(machines);
-                  machines.setLayout(null);
-                  
+  
             	  start.setIcon(start.getIcon()==startIcon? pushStartIcon:startIcon);
                   if(pause.getIcon()==pushStopIcon)
                   {
@@ -237,6 +234,15 @@ public class MainFrame extends JFrame{
 		  
 		    
 		}
+	/*public void startTraffic(MapPanel panel){
+		
+		MachinePanel machines= new MachinePanel();
+		this.add(machines);
+		JLayeredPane lp=new JLayeredPane();
+		lp.add(this,1,0);
+		lp.add(machines,2,0);
+		
+	}*/
       
 		public static void main(String[] args) throws IOException{
 				
